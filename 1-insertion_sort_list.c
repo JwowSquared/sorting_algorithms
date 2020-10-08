@@ -17,11 +17,11 @@ void insertion_sort_list(listint_t **list)
 		if (outer->n > outer->next->n)
 		{
 			inner = outer->next;
-			swap(list, outer, outer->next);
+			list_swap(list, outer, outer->next);
 			while (inner->prev != NULL)
 			{
 				if (inner->prev->n > inner->n)
-					swap(list, inner->prev, inner);
+					list_swap(list, inner->prev, inner);
 				else
 					break;
 			}
@@ -32,12 +32,12 @@ void insertion_sort_list(listint_t **list)
 }
 
 /**
-* swap - swaps 2 listint_t nodes
+* list_swap - swaps 2 listint_t nodes
 * @list: head of list
 * @left: left element to be swapped to the right
 * @right: right element to be swapped to the left
 */
-void swap(listint_t **list, listint_t *left, listint_t *right)
+void list_swap(listint_t **list, listint_t *left, listint_t *right)
 {
 	if (left == *list)
 		*list = right;
